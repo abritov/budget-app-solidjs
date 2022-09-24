@@ -5,7 +5,6 @@ import Box from "@suid/material/Box";
 import Button from "@suid/material/Button";
 import Checkbox from "@suid/material/Checkbox";
 import Container from "@suid/material/Container";
-import CssBaseline from "@suid/material/CssBaseline";
 import FormControlLabel from "@suid/material/FormControlLabel";
 import Grid from "@suid/material/Grid";
 import TextField from "@suid/material/TextField";
@@ -13,19 +12,23 @@ import Typography from "@suid/material/Typography";
 // import { LockOutlined } from '@suid/icons-material/'
 import Link from "@suid/material/Link";
 
+import { useNavigate } from "@solidjs/router";
+
 const Signin: Component = () => {
+  const navigate = useNavigate();
+
   const handleSubmit = (event: any) => {
     event.preventDefault();
-    const data = new FormData(event.currentTarget);
-    console.log({
-      email: data.get("email"),
-      password: data.get("password"),
-    });
+    navigate("/budget");
+    // const data = new FormData(event.currentTarget);
+    // console.log({
+    //   email: data.get("email"),
+    //   password: data.get("password"),
+    // });
   };
 
   return (
     <Container component="main" maxWidth="xs">
-      <CssBaseline />
       <Box
         sx={{
           marginTop: 8,

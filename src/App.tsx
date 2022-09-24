@@ -1,9 +1,10 @@
-import { Component, createMemo } from 'solid-js';
-import { createTheme, ThemeProvider } from '@suid/material';
-import { Link, Route, Routes } from '@solidjs/router';
+import { Component, createMemo } from "solid-js";
+import { createTheme, ThemeProvider } from "@suid/material";
+import CssBaseline from "@suid/material/CssBaseline";
+import { Route, Routes } from "@solidjs/router";
 
-import Profile from './Profile';
-import Signin from './Signin';
+import Budget from "./Budget";
+import Signin from "./Signin";
 
 const App: Component = () => {
   const theme = createMemo(() => createTheme());
@@ -11,11 +12,10 @@ const App: Component = () => {
 
   return (
     <ThemeProvider theme={theme()}>
-      <Link href='/profile'>Profile page</Link>
-      <Link href='/signin'>Signin page</Link>
+      <CssBaseline />
       <Routes>
-        <Route path="/profile" component={Profile} />
-        <Route path="/signin" component={Signin} />
+        <Route path="/budget" component={Budget} />
+        <Route path="/" component={Signin} />
       </Routes>
     </ThemeProvider>
   );
